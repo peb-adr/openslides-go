@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/OpenSlides/openslides-go/fastjson"
+	"github.com/peb-adr/openslides-go/fastjson"
 )
 
 func FuzzDecodeInt(f *testing.F) {

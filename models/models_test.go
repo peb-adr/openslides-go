@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/OpenSlides/openslides-go/models"
+	"github.com/peb-adr/openslides-go/models"
 )
 
 const yamlWithRelation = `---
