@@ -21,14 +21,14 @@ jobs:
       matrix:
         include:
           - repository: openslides-autoupdate-service
-            assignee: ostcar
+            assignee: peb-adr
             setup-action: setup-autoupdate-pr
           - repository: openslides-icc-service
-            assignee: ostcar
+            assignee: peb-adr
           - repository: openslides-vote-service
-            assignee: luisa-beerboom
+            assignee: peb-adr
           - repository: openslides-search-service
-            assignee: bastianjoel
+            assignee: peb-adr
           # Uncomment me once projector-service goes live
           #- repository: openslides-projector-service
           #  assignee: bastianjoel
