@@ -1,4 +1,4 @@
-module github.com/OpenSlides/openslides-go
+module github.com/peb-adr/openslides-go
 
 go 1.24.0
 

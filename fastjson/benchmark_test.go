@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/OpenSlides/openslides-go/fastjson"
+	"github.com/peb-adr/openslides-go/fastjson"
 )
 
 func BenchmarkFastjsonDecodeInt(b *testing.B) {

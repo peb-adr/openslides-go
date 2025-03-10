@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/OpenSlides/openslides-go/datastore/dskey"
-	"github.com/OpenSlides/openslides-go/environment"
+	"github.com/peb-adr/openslides-go/datastore/dskey"
+	"github.com/peb-adr/openslides-go/environment"
 	"github.com/gomodule/redigo/redis"
 )
 

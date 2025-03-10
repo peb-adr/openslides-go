@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/OpenSlides/openslides-go/datastore/dskey"
-	"github.com/OpenSlides/openslides-go/datastore/flow"
+	"github.com/peb-adr/openslides-go/datastore/dskey"
+	"github.com/peb-adr/openslides-go/datastore/flow"
 )
 
 // Stub are data that can be used as a datastore value.

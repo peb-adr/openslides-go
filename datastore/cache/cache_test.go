@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/OpenSlides/openslides-go/datastore/cache"
-	"github.com/OpenSlides/openslides-go/datastore/dskey"
-	"github.com/OpenSlides/openslides-go/datastore/dsmock"
+	"github.com/peb-adr/openslides-go/datastore/cache"
+	"github.com/peb-adr/openslides-go/datastore/dskey"
+	"github.com/peb-adr/openslides-go/datastore/dsmock"
 )
 
 func TestCache_call_Get_returns_the_value_from_flow(t *testing.T) {

@@ -3,7 +3,7 @@ package set_test
 import (
 	"testing"
 
-	"github.com/OpenSlides/openslides-go/set"
+	"github.com/peb-adr/openslides-go/set"
 )
 
 func TestLen(t *testing.T) {
