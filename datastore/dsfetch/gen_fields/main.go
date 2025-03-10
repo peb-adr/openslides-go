@@ -186,7 +186,7 @@ func genCollections(buf *bytes.Buffer, fromYML map[string]models.Model) error {
 }
 
 func openModelYML() (io.ReadCloser, error) {
-	return os.Open("../../../meta/models.yml")
+	return os.Open("../../meta/models.yml")
 }
 
 // toFields returns all fields from the models.yml with there go-type as string.
