@@ -10,8 +10,8 @@ import (
 	"sort"
 	"text/template"
 
-	"github.com/OpenSlides/openslides-go/models"
-	"github.com/OpenSlides/openslides-go/set"
+	"github.com/peb-adr/openslides-go/models"
+	"github.com/peb-adr/openslides-go/set"
 )
 
 func main() {

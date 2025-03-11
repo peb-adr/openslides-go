@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/OpenSlides/openslides-go/auth"
-	"github.com/OpenSlides/openslides-go/auth/authtest"
-	"github.com/OpenSlides/openslides-go/environment"
+	"github.com/peb-adr/openslides-go/auth"
+	"github.com/peb-adr/openslides-go/auth/authtest"
+	"github.com/peb-adr/openslides-go/environment"
 	"github.com/golang-jwt/jwt/v4"
 )
 
