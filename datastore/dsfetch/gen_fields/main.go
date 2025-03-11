@@ -17,7 +17,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/OpenSlides/openslides-go/models"
+	"github.com/peb-adr/openslides-go/models"
 )
 
 //go:embed value.go.tmpl
