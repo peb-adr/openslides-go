@@ -26,7 +26,7 @@ jobs:
           - repository: openslides-icc-service
             assignee: ostcar
           - repository: openslides-vote-service
-            assignee: luisa-beerboom
+            assignee: ostcar
           - repository: openslides-search-service
             assignee: bastianjoel
           # Uncomment me once projector-service goes live
