@@ -68,7 +68,7 @@ jobs:
           path: service-repository
           token: ${{ steps.generate-token.outputs.token }}
           commit-message: Update openslides-go
-          branch: dep/update-go
+          branch: dep/update-meta-or-go-${{ github.ref_name }}
           delete-branch: true
           title: "Update openslides-go (${{ github.ref_name }})"
           body: "Triggered by commit [${{ inputs.commit }}](https://github.com/${{ github.repository_owner }}/openslides-go/commit/${{ inputs.commit }})"
