@@ -47,6 +47,7 @@ jobs:
         working-directory: service-repository/
         run: |
           go get github.com/${{ github.repository_owner }}/openslides-go@${{ inputs.commit }}
+          go mod tidy
 
       - name: Run setup-action
         if: inputs.setup-action != ''
