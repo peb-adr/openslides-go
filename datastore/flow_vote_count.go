@@ -104,6 +104,10 @@ func (s *FlowVoteCount) wait(ctx context.Context, eventProvider func() (<-chan t
 }
 
 func (s *FlowVoteCount) connect(ctx context.Context) error {
+	s.mu.Lock()
+	s.pollToUserIDs = make(map[int][]int)
+	s.mu.Unlock()
+
 	req, err := http.NewRequestWithContext(ctx, "GET", s.voteServiceURL+allVotedIdsPath, nil)
 	if err != nil {
 		return fmt.Errorf("building request: %w", err)
