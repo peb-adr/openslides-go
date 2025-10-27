@@ -4,6 +4,7 @@ package dsmodels
 import (
 	"encoding/json"
 	"github.com/OpenSlides/openslides-go/datastore/dsfetch"
+	"github.com/shopspring/decimal"
 )
 
 // ActionWorker has all fields from action_worker.
@@ -1669,6 +1670,8 @@ type Meeting struct {
 	MotionsEnableOriginMotionDisplay             bool
 	MotionsEnableReasonOnProjector               bool
 	MotionsEnableRecommendationOnProjector       bool
+	MotionsEnableRestrictedEditorForManager      bool
+	MotionsEnableRestrictedEditorForNonManager   bool
 	MotionsEnableSideboxOnProjector              bool
 	MotionsEnableTextOnProjector                 bool
 	MotionsEnableWorkingGroupSpeaker             bool
@@ -2007,6 +2010,8 @@ func (b *meetingBuilder) lazy(ds *Fetch, id int) *Meeting {
 	ds.Meeting_MotionsEnableOriginMotionDisplay(id).Lazy(&c.MotionsEnableOriginMotionDisplay)
 	ds.Meeting_MotionsEnableReasonOnProjector(id).Lazy(&c.MotionsEnableReasonOnProjector)
 	ds.Meeting_MotionsEnableRecommendationOnProjector(id).Lazy(&c.MotionsEnableRecommendationOnProjector)
+	ds.Meeting_MotionsEnableRestrictedEditorForManager(id).Lazy(&c.MotionsEnableRestrictedEditorForManager)
+	ds.Meeting_MotionsEnableRestrictedEditorForNonManager(id).Lazy(&c.MotionsEnableRestrictedEditorForNonManager)
 	ds.Meeting_MotionsEnableSideboxOnProjector(id).Lazy(&c.MotionsEnableSideboxOnProjector)
 	ds.Meeting_MotionsEnableTextOnProjector(id).Lazy(&c.MotionsEnableTextOnProjector)
 	ds.Meeting_MotionsEnableWorkingGroupSpeaker(id).Lazy(&c.MotionsEnableWorkingGroupSpeaker)
@@ -3505,7 +3510,7 @@ type MeetingUser struct {
 	UserID                        int
 	VoteDelegatedToID             dsfetch.Maybe[int]
 	VoteDelegationsFromIDs        []int
-	VoteWeight                    string
+	VoteWeight                    decimal.Decimal
 	AssignmentCandidateList       []AssignmentCandidate
 	ChatMessageList               []ChatMessage
 	GroupList                     []Group
@@ -4815,6 +4820,7 @@ type MotionState struct {
 	SetWorkflowTimestamp             bool
 	ShowRecommendationExtensionField bool
 	ShowStateExtensionField          bool
+	StateButtonLabel                 string
 	SubmitterWithdrawBackIDs         []int
 	SubmitterWithdrawStateID         dsfetch.Maybe[int]
 	Weight                           int
@@ -4858,6 +4864,7 @@ func (b *motionStateBuilder) lazy(ds *Fetch, id int) *MotionState {
 	ds.MotionState_SetWorkflowTimestamp(id).Lazy(&c.SetWorkflowTimestamp)
 	ds.MotionState_ShowRecommendationExtensionField(id).Lazy(&c.ShowRecommendationExtensionField)
 	ds.MotionState_ShowStateExtensionField(id).Lazy(&c.ShowStateExtensionField)
+	ds.MotionState_StateButtonLabel(id).Lazy(&c.StateButtonLabel)
 	ds.MotionState_SubmitterWithdrawBackIDs(id).Lazy(&c.SubmitterWithdrawBackIDs)
 	ds.MotionState_SubmitterWithdrawStateID(id).Lazy(&c.SubmitterWithdrawStateID)
 	ds.MotionState_Weight(id).Lazy(&c.Weight)
@@ -5235,17 +5242,17 @@ func (r *Fetch) MotionWorkingGroupSpeaker(ids ...int) *motionWorkingGroupSpeaker
 
 // Option has all fields from option.
 type Option struct {
-	Abstain                    string
+	Abstain                    decimal.Decimal
 	ContentObjectID            dsfetch.Maybe[string]
 	ID                         int
 	MeetingID                  int
-	No                         string
+	No                         decimal.Decimal
 	PollID                     dsfetch.Maybe[int]
 	Text                       string
 	UsedAsGlobalOptionInPollID dsfetch.Maybe[int]
 	VoteIDs                    []int
 	Weight                     int
-	Yes                        string
+	Yes                        decimal.Decimal
 	Meeting                    *Meeting
 	Poll                       *dsfetch.Maybe[Poll]
 	UsedAsGlobalOptionInPoll   *dsfetch.Maybe[Poll]
@@ -5780,9 +5787,9 @@ type Poll struct {
 	VotedIDs              []int
 	VotesRaw              string
 	VotesSignature        string
-	Votescast             string
-	Votesinvalid          string
-	Votesvalid            string
+	Votescast             decimal.Decimal
+	Votesinvalid          decimal.Decimal
+	Votesvalid            decimal.Decimal
 	EntitledGroupList     []Group
 	GlobalOption          *dsfetch.Maybe[Option]
 	Meeting               *Meeting
@@ -7273,7 +7280,7 @@ type User struct {
 	CommitteeIDs                []int
 	CommitteeManagementIDs      []int
 	DefaultPassword             string
-	DefaultVoteWeight           string
+	DefaultVoteWeight           decimal.Decimal
 	DelegatedVoteIDs            []int
 	Email                       string
 	External                    bool
@@ -7552,7 +7559,7 @@ type Vote struct {
 	UserID          dsfetch.Maybe[int]
 	UserToken       string
 	Value           string
-	Weight          string
+	Weight          decimal.Decimal
 	DelegatedUser   *dsfetch.Maybe[User]
 	Meeting         *Meeting
 	Option          *Option
